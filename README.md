@@ -1,16 +1,15 @@
-#**PRAKTIKUM METODE NUMERIK**
+###**PRAKTIKUM METODE NUMERIK**
 
-Repository ini berisi kumpulan tugas, praktikum, dan implementasi algoritma Metode Numerik.
+Repository praktikum dan implementasi algoritma Metode Numerik.
 
-## 📌 Anggota Kelompok / Profil
-- **Nama**: Nama Lengkap Kamu
-- **NIM**: 123456789
-- **Kelas**: Metode Numerik (A/B)
+## 📌 Profil
+- **Nama**: Faradilla Zahrotul Ashifa
+- **NIM**: L0325023
+- **Kelas**:B Informatika
 
 ## 🚀 Fitur & Algoritma
-- [x] Metode Biseksi (Bisection Method)
-- [x] Metode Newton-Raphson
-- [ ] Regresi Linear
+- [x] Pengenalan Octave 1 (Variabel, Operasi, Array, dan Matriks)
+- [x] Pengenalan Octave 2 (Looping, Function, Grafik 2D, dan Grafik 3D)
 
 ## 🛠️ Cara Menjalankan
 1. Clone repository ini:
