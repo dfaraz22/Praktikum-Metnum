@@ -1,4 +1,4 @@
-###**PRAKTIKUM METODE NUMERIK**
+# **PRAKTIKUM METODE NUMERIK**
 
 Repository praktikum dan implementasi algoritma Metode Numerik.
 
