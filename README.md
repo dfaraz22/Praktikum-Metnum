@@ -5,7 +5,7 @@ Repository praktikum dan implementasi algoritma Metode Numerik.
 ## 📌 Profil
 - **Nama**: Faradilla Zahrotul Ashifa
 - **NIM**: L0325023
-- **Kelas**:B Informatika
+- **Kelas** :B Informatika
 
 ## 🚀 Fitur & Algoritma
 - [x] Pengenalan Octave 1 (Variabel, Operasi, Array, dan Matriks)
