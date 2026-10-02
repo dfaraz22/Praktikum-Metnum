@@ -1,4 +1,7 @@
-import numpy as np
+try:
+    import numpy as np
+except ImportError:
+    np = None
 
 # Total suku N = 20
 N = 20
@@ -13,8 +16,14 @@ eksak = sum(1 / i for i in range(1, N + 1))
 # --------------------------------------------------
 # b. Masing-masing Pembagian Dibulatkan (misal: 3 desimal)
 # --------------------------------------------------
+from decimal import Decimal, ROUND_HALF_UP
+
 desimal = 3
-hasil_b = sum(round(1 / i, desimal) for i in range(1, N + 1))
+kuantum = Decimal(1).scaleb(-desimal)  # 0.001
+hasil_b = float(sum(
+    (Decimal(1) / Decimal(i)).quantize(kuantum, rounding=ROUND_HALF_UP)
+    for i in range(1, N + 1)
+))
 galat_b = abs(eksak - hasil_b)
 
 

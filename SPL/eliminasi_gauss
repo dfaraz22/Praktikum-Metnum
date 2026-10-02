@@ -1,0 +1,65 @@
+# PROGRAM ELIMINASI GAUSS
+
+A = [
+    [2.0, 1.0, -1.0],
+    [4.0, 3.0, 1.0],
+    [-2.0, 1.0, 2.0]
+]
+
+b = [3.0, 9.0, 4.0]
+
+n = len(b)
+
+# Membentuk matriks augmented [A | b]
+for i in range(n):
+    A[i].append(b[i])
+
+print("Matriks awal:")
+for baris in A:
+    print(baris)
+
+
+# =========================
+# FORWARD ELIMINATION
+# =========================
+
+for k in range(n - 1):
+
+    print("\nPivot =", A[k][k])
+
+    for i in range(k + 1, n):
+
+        # Menghitung multiplier
+        m = A[i][k] / A[k][k]
+
+        print("Multiplier =", m)
+
+        # Eliminasi baris
+        for j in range(k, n + 1):
+            A[i][j] = A[i][j] - m * A[k][j]
+
+print("\nMatriks segitiga atas:")
+for baris in A:
+    print(baris)
+
+
+# =========================
+# BACKWARD SUBSTITUTION
+# =========================
+
+x = [0.0] * n
+
+for i in range(n - 1, -1, -1):
+
+    jumlah = 0
+
+    for j in range(i + 1, n):
+        jumlah += A[i][j] * x[j]
+
+    x[i] = (A[i][n] - jumlah) / A[i][i]
+
+
+print("\nHasil Eliminasi Gauss:")
+print("x1 =", x[0])
+print("x2 =", x[1])
+print("x3 =", x[2])

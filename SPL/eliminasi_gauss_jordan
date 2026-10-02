@@ -1,0 +1,60 @@
+# PROGRAM ELIMINASI GAUSS-JORDAN
+
+A = [
+    [2.0, 1.0, -1.0],
+    [4.0, 3.0, 1.0],
+    [-2.0, 1.0, 2.0]
+]
+
+b = [3.0, 9.0, 4.0]
+
+n = len(b)
+
+# Membentuk matriks augmented [A | b]
+for i in range(n):
+    A[i].append(b[i])
+
+print("Matriks awal:")
+for baris in A:
+    print(baris)
+
+
+# =========================
+# GAUSS-JORDAN
+# =========================
+
+for k in range(n):
+
+    # Menjadikan pivot = 1
+    pivot = A[k][k]
+
+    for j in range(n + 1):
+        A[k][j] = A[k][j] / pivot
+
+    # Menghilangkan elemen
+    # di atas dan di bawah pivot
+    for i in range(n):
+
+        if i != k:
+
+            m = A[i][k]
+
+            for j in range(n + 1):
+                A[i][j] = A[i][j] - m * A[k][j]
+
+
+print("\nMatriks hasil Gauss-Jordan:")
+for baris in A:
+    print(baris)
+
+
+# =========================
+# MEMBACA SOLUSI
+# =========================
+
+x = [A[i][n] for i in range(n)]
+
+print("\nHasil Gauss-Jordan:")
+print("x1 =", x[0])
+print("x2 =", x[1])
+print("x3 =", x[2])

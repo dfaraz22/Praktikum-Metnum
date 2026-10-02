@@ -1,0 +1,122 @@
+# PROGRAM DEKOMPOSISI LU
+
+A = [
+    [2.0, 1.0, -1.0],
+    [4.0, 3.0, 1.0],
+    [-2.0, 1.0, 2.0]
+]
+
+b = [3.0, 9.0, 4.0]
+
+n = len(A)
+
+
+# =========================
+# MEMBUAT L DAN U
+# =========================
+
+# L dengan diagonal utama = 1
+L = [
+    [1.0 if i == j else 0.0 for j in range(n)]
+    for i in range(n)
+]
+
+# U dimulai dari A
+U = [baris[:] for baris in A]
+
+
+# =========================
+# FORWARD ELIMINATION
+# =========================
+
+for k in range(n - 1):
+
+    for i in range(k + 1, n):
+
+        # Menghitung multiplier
+        m = U[i][k] / U[k][k]
+
+        print("Multiplier =", m)
+
+        # Simpan multiplier ke L
+        L[i][k] = m
+
+        # Eliminasi untuk mendapatkan U
+        for j in range(k, n):
+            U[i][j] = U[i][j] - m * U[k][j]
+
+
+# =========================
+# MENAMPILKAN L DAN U
+# ===========================
+
+print("\nMatriks L:")
+for baris in L:
+    print(baris)
+
+print("\nMatriks U:")
+for baris in U:
+    print(baris)
+
+
+# =========================
+# CEK A = L * U
+# ==========================
+
+LU = [
+    [0.0 for j in range(n)]
+    for i in range(n)
+]
+
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            LU[i][j] += L[i][k] * U[k][j]
+
+print("\nHasil L * U:")
+for baris in LU:
+    print(baris)
+
+
+# =========================
+# FORWARD SUBSTITUTION
+# Ly = b
+# =========================
+
+y = [0.0] * n
+
+for i in range(n):
+
+    jumlah = 0
+
+    for j in range(i):
+        jumlah += L[i][j] * y[j]
+
+    y[i] = (b[i] - jumlah) / L[i][i]
+
+
+print("\nNilai y:")
+print(y)
+
+
+# =========================
+# BACKWARD SUBSTITUTION
+# Ux = y
+# =========================
+
+x = [0.0] * n
+
+for i in range(n - 1, -1, -1):
+
+    jumlah = 0
+
+    for j in range(i + 1, n):
+        jumlah += U[i][j] * x[j]
+
+    x[i] = (y[i] - jumlah) / U[i][i]
+
+
+print("\nHasil Dekomposisi LU:")
+print("x1 =", x[0])
+print("x2 =", x[1])
+print("x3 =", x[2])
